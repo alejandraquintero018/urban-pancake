@@ -1,7 +1,7 @@
 # urban-pancake
 
 ## Description 
-This application is an API for a fictionous social network applicaiton. This application uses Express.js, MongoDB and Mongoose ODM. This application is ran using Insomnia. Through this project, I learned how to use Moongoose ODM and to set up a model and a schema. In this project, I also seperated the controllers and routes making my code more succinct. Referring to the documentation for Mongoose, validating this 
+This application is an API for a fictionous social network applicaiton. This application uses Express.js, MongoDB and Mongoose ODM. This application is ran using Insomnia. Through this project, I learned how to use Moongoose ODM and to set up a model and a schema. In this project, I also seperated the controllers and routes making my code more succinct, doing this was new but I found my code to be alot cleaner once implimented. The most difficult part of this project was matching the given models and schema. This provided insight on making models and schemas based off of a request.  
 
 ## Usage 
 
