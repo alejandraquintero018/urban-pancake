@@ -13,7 +13,7 @@ const thoughtController = {
         });
     },
     singleThought(req, res) {
-        Thought.findOne({ _id: req.params.userId })
+        Thought.findOne({ _id: req.params.thoughtId })
             .select('-__v')
             .populate('friends')
             .populate('reactions')
@@ -35,7 +35,7 @@ const thoughtController = {
             });
     },
     updateThought(req, res) { 
-        Thought.updateOne({ _id: req.params.userId })
+        Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $set: req.body })
         .then((userDB) => {
             res.json(userDB)
         })
@@ -45,7 +45,7 @@ const thoughtController = {
         });
     }, 
     deleteThought(req, res) {
-        Thought.deleteOne({ _id: req.params.userId })
+        Thought.deleteOne({ _id: req.params.thoughtId })
         .then((userDB) => {
             res.json(userDB)
         })
@@ -60,10 +60,11 @@ const thoughtController = {
         },
             {
                 $addToSet: {
-                    reactions: req.params.thoughtId
+                    reactions: req.body
                 }
             },
             {
+                runValidators: true,
                 new: true
             }).then((userDB) => {
                 res.json(userDB)
@@ -78,7 +79,7 @@ const thoughtController = {
         },
         {
             $pull: {
-                reactions: req.params.thoughtId
+                reactions: { reactionId: req.params.reactionId }
             }
         },
         {

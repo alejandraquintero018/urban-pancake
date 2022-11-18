@@ -1,5 +1,5 @@
 const { ObjectId } = require('bson');
-const { Schema } = require('mongoose');
+const { Schema, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const reactionSchema = new Schema (
@@ -13,7 +13,7 @@ const reactionSchema = new Schema (
             required: true, 
             max_length: 280,
         }, 
-        username: {
+        userName: {
             type: String, 
             required: true, 
         },

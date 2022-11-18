@@ -35,7 +35,8 @@ const userController = {
             });
     },
     updateUser(req, res) {
-        User.updateOne({ _id: req.params.userId })
+        User.findOneAndUpdate(
+            { _id: req.params.userId }, { $set: req.body })
             .then((userDB) => {
                 res.json(userDB)
             })
